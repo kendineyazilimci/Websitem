@@ -16,28 +16,19 @@ router.get("/contact", (req, res) => {
 router.post("/contact", async (req, res) => {
     const { name, email, subject, message } = req.body;
 
-    console.log("Mail gönderme işlemi başladı..."); // Log 1
-
-    // Şifreler okunabiliyor mu kontrolü (Güvenlik için sadece ilk 3 harfini basar)
-    const userCheck = process.env.EMAIL_USER ? process.env.EMAIL_USER : "YOK";
-    const passCheck = process.env.EMAIL_PASS ? "VAR" : "YOK";
-    console.log(`ENV Kontrolü -> User: ${userCheck}, Pass: ${passCheck}`);
+    console.log("--> Mail süreci başladı (Port 465 SSL deniyoruz)");
 
     try {
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
-            port: 587,
-            secure: false,
+            port: 465,
+            secure: true,
             auth: {
                 user: process.env.EMAIL_USER, 
                 pass: process.env.EMAIL_PASS
             },
-            tls: {
-                rejectUnauthorized: false
-            },
-            family: 4, 
-            debug: true, // HATA AYIKLAMA MODU AÇIK
-            logger: true // LOGLARI KONSOLA BAS
+            family: 4,
+            debug: true,
         });
 
         const mailOptions = {
@@ -54,9 +45,9 @@ router.post("/contact", async (req, res) => {
             `
         };
 
-        console.log("Transporter oluşturuldu, mail gönderiliyor...");
+        console.log("--> Transporter hazır, gönderiliyor...");
         let info = await transporter.sendMail(mailOptions);
-        console.log("Mail başarıyla gitti! ID: " + info.messageId);
+        console.log("--> BAŞARILI! Message ID: " + info.messageId);
         
         res.send(`
             <script>
@@ -66,13 +57,12 @@ router.post("/contact", async (req, res) => {
         `);
 
     } catch (error) {
-        // HATANIN BABASINI BURADA GÖRECEĞİZ
-        console.error("Mail GÖNDERİLEMEDİ. Hata Detayı:");
+        console.error("--> HATA OLUŞTU:");
         console.error(error); 
         
         res.send(`
             <script>
-                alert("Hata oluştu: Mesaj gönderilemedi. Hata: ${error.message}");
+                alert("Hata: Mesaj gönderilemedi. Lütfen daha sonra deneyin.");
                 window.location.href = "/contact"; 
             </script>
         `);
