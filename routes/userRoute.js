@@ -16,19 +16,18 @@ router.get("/contact", (req, res) => {
 router.post("/contact", async (req, res) => {
     const { name, email, subject, message } = req.body;
 
-    console.log("--> Mail süreci başladı (Port 465 SSL deniyoruz)");
+    console.log("--> Gmail Service Modu Başlatılıyor...");
 
     try {
         const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
+            service: 'gmail', // Port ve Host ayarını sildik, direkt bunu kullanıyoruz.
             auth: {
                 user: process.env.EMAIL_USER, 
                 pass: process.env.EMAIL_PASS
             },
-            family: 4,
-            debug: true,
+            family: 4, // Bunu MUTLAKA tutuyoruz, Render için şart.
+            logger: true, // Logları görelim
+            debug: true   // Hata ayıklama açık
         });
 
         const mailOptions = {
@@ -45,9 +44,9 @@ router.post("/contact", async (req, res) => {
             `
         };
 
-        console.log("--> Transporter hazır, gönderiliyor...");
+        console.log("--> Gönderim deneniyor...");
         let info = await transporter.sendMail(mailOptions);
-        console.log("--> BAŞARILI! Message ID: " + info.messageId);
+        console.log("--> SONUÇ BAŞARILI: " + info.response);
         
         res.send(`
             <script>
@@ -57,12 +56,12 @@ router.post("/contact", async (req, res) => {
         `);
 
     } catch (error) {
-        console.error("--> HATA OLUŞTU:");
+        console.error("--> HATA (Service Modu):");
         console.error(error); 
         
         res.send(`
             <script>
-                alert("Hata: Mesaj gönderilemedi. Lütfen daha sonra deneyin.");
+                alert("Hata oluştu. Lütfen tekrar deneyin.");
                 window.location.href = "/contact"; 
             </script>
         `);
