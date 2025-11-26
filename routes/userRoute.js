@@ -9,67 +9,42 @@ const navbarLinks = [
     {id: 4, name: "Neredeyim?", url: "/whereami"}
 ];
 
-router.get("/contact", (req, res) => {
-    res.render('users/contact', { navbarLinks });
-});
+router.get("/contact", (req, res) => { res.render('users/contact', { navbarLinks }); });
 
 router.post("/contact", async (req, res) => {
     const { name, email, subject, message } = req.body;
-
-    console.log("--> Gmail Service Modu Başlatılıyor...");
+    console.log("--> Outlook ile gönderim deneniyor...");
 
     try {
         const transporter = nodemailer.createTransport({
-            service: 'gmail', // Port ve Host ayarını sildik, direkt bunu kullanıyoruz.
+            host: "smtp-mail.outlook.com",
+            port: 587,
+            secure: false,
             auth: {
-                user: process.env.EMAIL_USER, 
-                pass: process.env.EMAIL_PASS
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS  
             },
-            family: 4, // Bunu MUTLAKA tutuyoruz, Render için şart.
-            logger: true, // Logları görelim
-            debug: true   // Hata ayıklama açık
+            tls: {
+                ciphers: 'SSLv3',
+                rejectUnauthorized: false
+            }
         });
 
         const mailOptions = {
-            from: `"${name}" <${process.env.EMAIL_USER}>`, 
+            from: process.env.EMAIL_USER, 
             to: process.env.EMAIL_USER,
-            replyTo: email, 
             subject: `Siteden Mesaj: ${subject}`,
-            html: `
-                <h3>Yeni İletişim Formu Mesajı</h3>
-                <p><strong>Gönderen:</strong> ${name}</p>
-                <p><strong>E-posta:</strong> ${email}</p>
-                <p><strong>Konu:</strong> ${subject}</p>
-                <p><strong>Mesaj:</strong> <br>${message}</p>
-            `
+            text: `Gönderen: ${name} (${email})\n\nMesaj:\n${message}`
         };
 
-        console.log("--> Gönderim deneniyor...");
         let info = await transporter.sendMail(mailOptions);
-        console.log("--> SONUÇ BAŞARILI: " + info.response);
+        console.log("--> BAŞARILI! ID: " + info.messageId);
         
-        res.send(`
-            <script>
-                alert("Mesajınız başarıyla gönderildi!");
-                window.location.href = "/contact"; 
-            </script>
-        `);
+        res.send(`<script>alert("Gönderildi!"); window.location.href = "/contact";</script>`);
 
     } catch (error) {
-        console.error("--> HATA (Service Modu):");
-        console.error(error); 
-        
-        res.send(`
-            <script>
-                alert("Hata oluştu. Lütfen tekrar deneyin.");
-                window.location.href = "/contact"; 
-            </script>
-        `);
+        console.error("HATA:", error);
+        res.send(`<script>alert("Hata: ${error.message}"); window.location.href = "/contact";</script>`);
     }
 });
-
-router.use("/about", (req, res) => { res.render('users/about', { navbarLinks }); });
-router.use("/whereami", (req, res) => { res.render('users/whereami.ejs', { navbarLinks }); });
-router.use("/", (req, res) => { res.render('users/homepage.ejs', { navbarLinks }); });
-
 module.exports = router;
