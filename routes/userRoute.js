@@ -22,7 +22,7 @@ router.post("/contact", async (req, res) => {
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
             port: 587,
-            secure: false, // 587 için false olmalı
+            secure: false, // 587 için false
             auth: {
                 user: process.env.EMAIL_USER, 
                 pass: process.env.EMAIL_PASS
@@ -30,7 +30,7 @@ router.post("/contact", async (req, res) => {
             tls: {
                 rejectUnauthorized: false
             },
-            family: 4,
+            family: 4, // IPv4 zorlaması (Timeout hatasını çözen kısım)
         });
 
         const mailOptions = {
