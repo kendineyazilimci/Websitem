@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const path = require("path");
-const fs = require("fs");
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
@@ -18,11 +16,18 @@ router.get("/contact", (req, res) => {
 router.post("/contact", async (req, res) => {
     const { name, email, subject, message } = req.body;
 
+    console.log("Mail gönderme işlemi başladı..."); // Log 1
+
+    // Şifreler okunabiliyor mu kontrolü (Güvenlik için sadece ilk 3 harfini basar)
+    const userCheck = process.env.EMAIL_USER ? process.env.EMAIL_USER : "YOK";
+    const passCheck = process.env.EMAIL_PASS ? "VAR" : "YOK";
+    console.log(`ENV Kontrolü -> User: ${userCheck}, Pass: ${passCheck}`);
+
     try {
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
             port: 587,
-            secure: false, // 587 için false
+            secure: false,
             auth: {
                 user: process.env.EMAIL_USER, 
                 pass: process.env.EMAIL_PASS
@@ -30,7 +35,9 @@ router.post("/contact", async (req, res) => {
             tls: {
                 rejectUnauthorized: false
             },
-            family: 4, // IPv4 zorlaması (Timeout hatasını çözen kısım)
+            family: 4, 
+            debug: true, // HATA AYIKLAMA MODU AÇIK
+            logger: true // LOGLARI KONSOLA BAS
         });
 
         const mailOptions = {
@@ -47,36 +54,33 @@ router.post("/contact", async (req, res) => {
             `
         };
 
-        await transporter.sendMail(mailOptions);
+        console.log("Transporter oluşturuldu, mail gönderiliyor...");
+        let info = await transporter.sendMail(mailOptions);
+        console.log("Mail başarıyla gitti! ID: " + info.messageId);
         
         res.send(`
             <script>
-                alert("Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağım.");
+                alert("Mesajınız başarıyla gönderildi!");
                 window.location.href = "/contact"; 
             </script>
         `);
 
     } catch (error) {
-        console.error("Mail hatası:", error);
+        // HATANIN BABASINI BURADA GÖRECEĞİZ
+        console.error("Mail GÖNDERİLEMEDİ. Hata Detayı:");
+        console.error(error); 
+        
         res.send(`
             <script>
-                alert("Hata oluştu: Mesaj gönderilemedi.");
+                alert("Hata oluştu: Mesaj gönderilemedi. Hata: ${error.message}");
                 window.location.href = "/contact"; 
             </script>
         `);
     }
 });
 
-router.use("/about", (req, res, next) => { 
-    res.render('users/about', { navbarLinks }); 
-});
-
-router.use("/whereami", (req, res, next) => {
-    res.render('users/whereami.ejs', { navbarLinks });
-});
-
-router.use("/", (req, res, next) => {
-    res.render('users/homepage.ejs', { navbarLinks });
-});
+router.use("/about", (req, res) => { res.render('users/about', { navbarLinks }); });
+router.use("/whereami", (req, res) => { res.render('users/whereami.ejs', { navbarLinks }); });
+router.use("/", (req, res) => { res.render('users/homepage.ejs', { navbarLinks }); });
 
 module.exports = router;
