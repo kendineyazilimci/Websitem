@@ -1,0 +1,78 @@
+body {
+    background-color: #0d1117 !important;
+    color: #c9d1d9 !important;
+    padding-top: 120px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0; 
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, transparent 20%, #0d1117 90%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.map-container, .container {
+    position: relative;
+    z-index: 1;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #004085, #0f7d8f);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.map {
+    width: 100%;
+    max-width: 700px;
+    height: 350px;
+    border-radius: 20px; 
+    border: 2px solid rgba(255, 255, 255, 0.08); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.map:hover {
+    box-shadow: 0 15px 40px rgba(15, 125, 143, 0.2);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .map {
+        height: 350px;
+    }
+}

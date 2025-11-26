@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+    
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/contact.css">
+</head>
+<body>
+    
+    <%- include('../partials/navbar.ejs') %>
+    
+    <div class="container my-5">
+        
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-4 fw-bold mb-3">
+                    Bana <span class="gradient-text">Ulaşın</span>
+                </h1>
+                <p class="lead text-secondary">
+                    Projeler, sorular veya iş birlikleri... Bir mesaj uzağınızdayım.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mb-5 g-4">
+            <div class="col-md-4">
+                <div class="glass-card card-phone text-center">
+                    <div class="icon-box text-success">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Telefon</h4>
+                    <p class="text-white-50 mb-4">+90 531 294 80 32</p>
+                    <a href="tel:+905312948032" class="btn btn-outline-success rounded-pill px-4 stretched-link">Ara</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="glass-card card-mail text-center">
+                    <div class="icon-box text-info">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">E-posta</h4>
+                    <p class="text-white-50 mb-4">ozanguneysu6@gmail.com</p>
+                    <a href="mailto:ozanguneysu6@gmail.com" class="btn btn-outline-info rounded-pill px-4 stretched-link">Mail At</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="glass-card card-loc text-center">
+                    <div class="icon-box text-secondary">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Konum</h4>
+                    <p class="text-white-50 mb-4">İlkadım / Samsun</p>
+                    <a href="/whereami" target="_self" class="btn btn-outline-light rounded-pill px-4 stretched-link">Harita</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="glass-card p-4 p-md-5">
+                    <h3 class="mb-4 text-center">Mesaj Gönderin 🚀</h3>
+                    
+                    <form id="contactForm" method="POST" action="/contact">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control custom-input" id="name" placeholder="Ad" name="name" required>
+                                    <label for="name">Adınız Soyadınız</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control custom-input" id="email" placeholder="Mail" name="email" required>
+                                    <label for="email">E-posta Adresiniz</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control custom-input" id="subject" placeholder="Konu" name="subject">
+                            <label for="subject">Konu</label>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control custom-input" id="message" placeholder="Mesaj" name="message" style="height: 150px" required></textarea>
+                            <label for="message">Mesajınız</label>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-gradient btn-lg py-3">
+                                <i class="fas fa-paper-plane me-2"></i> GÖNDER
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

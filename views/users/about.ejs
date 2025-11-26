@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="tr" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımda</title>
+    
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="/css/navbar.css"> 
+    <link rel="stylesheet" href="/css/about.css"> 
+</head>
+<body>
+    
+    <%- include('../partials/navbar.ejs') %>
+    
+    <div class="container my-5">
+        
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                <div class="profile-img-container">
+                    <img src="/images/ozan2.jpg" alt="Ozan Güneysu" class="profile-img">
+                </div>
+                
+                <div class="d-flex justify-content-center gap-3 mt-4">
+                    <a href="https://github.com/kendineyazilimci" target="_blank" class="social-btn-lg social-github">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ozan-g%C3%BCneysu-9928032b2/" target="_blank" class="social-btn-lg social-linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="glass-card p-4">
+                    <h5 class="text-primary text-uppercase letter-spacing-2 mb-2">Bilgisayar Programcısı</h5>
+                    <h1 class="display-4 fw-bold mb-3">Merhaba, ben <span class="gradient-text">Ozan Güneysu</span></h1>
+                    <p class="lead text-light opacity-75">
+                        Web Geliştirme tutkunu, sürekli öğrenmeye inanan bir yazılımcıyım.
+                    </p>
+                    <p class="text-secondary">
+                        Bandırma Onyedi Eylül Üniversitesi mezunuyum. Özellikle <strong>Node.js</strong> ve <strong>PHP</strong> teknolojilerinde deneyimliyim. 
+                        Yeni teknolojilere hızla adapte olabilen, meraklı ve yazılım geliştirme yaşam döngüsünün tüm aşamalarında aktif rol almayı hedefleyen biriyim.
+                    </p>
+                    
+                    <div class="mt-4">
+                        <a href="/contact" class="btn btn-primary px-4 py-2 me-2">
+                            <i class="fas fa-paper-plane me-2"></i> İletişime Geç
+                        </a>
+                        <a href="https://github.com/kendineyazilimci" target="_blank" class="btn btn-outline-light px-4 py-2 rounded-pill">
+                            Projelerimi İncele
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <h3 class="fw-bold mb-4 border-start border-4 border-primary ps-3">Teknik Yetenekler</h3>
+            </div>
+            <div class="col-12">
+                <div class="glass-card p-4">
+                    <div class="d-flex flex-wrap gap-3">
+                        <span class="skill-badge skill-node"><i class="fab fa-node-js text-success"></i> Node.js</span>
+                        <span class="skill-badge skill-php"><i class="fab fa-php text-primary"></i> PHP</span>
+                        <span class="skill-badge skill-html5"><i class="fab fa-html5 text-danger"></i> HTML5</span>
+                        <span class="skill-badge skill-css"><i class="fab fa-css3-alt text-info"></i> CSS</span>
+                        <span class="skill-badge skill-python"><i class="fab fa-python text-warning"></i> Python</span>
+                        <span class="skill-badge skill-csharp"><i class="fas fa-code"></i> C#</span>
+                        <span class="skill-badge skill-db"><i class="fas fa-leaf text-success"></i> MongoDB</span>
+                        <span class="skill-badge skill-db"><i class="fas fa-database text-info"></i> MySQL</span>
+                        <span class="skill-badge skill-linux"><i class="fab fa-linux"></i> Linux</span>
+                        <span class="skill-badge skill-git"><i class="fas fa-code-branch"></i> Git</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="row mb-5">
+        <div class="col-12">
+            <h3 class="fw-bold mb-4 border-start border-4 border-info ps-3">Öne Çıkan Projeler</h3>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+                <div class="modern-card">
+                    <div class="card-header-img" style="border-bottom: 2px solid #0dcaf0;">
+                        <span class="card-year">2025</span>
+                        <i class="fas fa-laptop-code" style="color: #0dcaf0;"></i>
+                    </div>
+                    <div class="card-body-content">
+                        <h5 class="card-title">Websitem</h5>
+                        <p class="card-desc">
+                            Bu websitesinin kendi kaynak kodu. Node.js ve EJS yapıları ile geliştirdiğim kişisel portfolyom.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag" style="color: #0dcaf0; background: rgba(13, 202, 240, 0.1);">Node.js</span>
+                            <span class="tech-tag" style="color: #0dcaf0; background: rgba(13, 202, 240, 0.1);">EJS</span>
+                            <span class="tech-tag" style="color: #0dcaf0; background: rgba(13, 202, 240, 0.1);">Bootstrap</span>
+                        </div>
+                        <a href="https://github.com/kendineyazilimci/Websitem" target="_blank" class="card-link">
+                            <i class="fab fa-github me-2"></i> Kaynak Kodu
+                        </a>
+                    </div>
+                </div>
+        </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="modern-card">
+                    <div class="card-header-img" style="border-bottom: 2px solid #004085;">
+                        <span class="card-year">2024</span>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-body-content">
+                        <h5 class="card-title">Mesajlaşma Uygulaması</h5>
+                        <p class="card-desc">
+                            Maillere göre hesap oluşturan ve kullanıcıların birbirleriyle mesajlaşabildiği bir sosyal medya uygulaması.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <a href="https://github.com/kendineyazilimci/Social-Media" target="_blank" class="card-link">
+                            <i class="fab fa-github me-2"></i> Kodu İncele
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                <div class="modern-card">
+                    <div class="card-header-img" style="border-bottom: 2px solid #004085;">
+                        <span class="card-year">2025</span>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-body-content">
+                        <h5 class="card-title">PHP İle Oluşturulmuş İlk Websitem</h5>
+                        <p class="card-desc">
+                             Yarım kalan, ancak PHP yapısını öğrenmek için geliştirdiğim ilk kendime özel website projem.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <a href="https://github.com/kendineyazilimci/MyOwnWebsite" target="_blank" class="card-link">
+                            <i class="fab fa-github me-2"></i> Kodu İncele
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="modern-card">
+                    <div class="card-header-img" style="border-bottom: 2px solid #ffc107;">
+                        <span class="card-year">2024</span>
+                        <i class="fas fa-ghost" style="color: #ffc107;"></i>
+                    </div>
+                    <div class="card-body-content">
+                        <h5 class="card-title">Pac-Man Oyunu</h5>
+                        <p class="card-desc">
+                            Python ve PyGame kullanılarak geliştirilmiş, klasik oyun mekaniklerini içeren nostaljik bir oyun projesi.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag" style="color: #ffc107; background: rgba(255, 193, 7, 0.1);">Python</span>
+                            <span class="tech-tag" style="color: #ffc107; background: rgba(255, 193, 7, 0.1);">PyGame</span>
+                        </div>
+                        <a href="https://github.com/kendineyazilimci/PacMan" target="_blank" class="card-link">
+                            <i class="fab fa-github me-2"></i> Kodu İncele
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="modern-card">
+                    <div class="card-header-img" style="border-bottom: 2px solid #198754;">
+                        <span class="card-year">2024</span>
+                        <i class="fas fa-robot" style="color: #198754;"></i>
+                    </div>
+                    <div class="card-body-content">
+                        <h5 class="card-title">Çizgi İzleyen Robot</h5>
+                        <p class="card-desc">
+                            Arduino tabanlı, sensörler yardımıyla otonom hareket edebilen çizgi izleyen robot donanım projesi.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag" style="color: #198754; background: rgba(25, 135, 84, 0.1);">C++</span>
+                            <span class="tech-tag" style="color: #198754; background: rgba(25, 135, 84, 0.1);">Arduino</span>
+                        </div>
+                        <a href="https://www.linkedin.com/posts/ozan-g%C3%BCneysu-9928032b2_arduino-robotics-project-activity-7250496121402249217-MNIb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEs52b4BKHB1UJmy09vq0_DntTG8ZZvtTLk" target="_blank" class="card-link">
+                            <i class="fas fa-eye me-2"></i> Detaylar
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="modern-card">
+                    <div class="card-header-img" style="border-bottom: 2px solid #004085;">
+                        <span class="card-year">2024</span>
+                        <i class="fas fa-calculator"></i> </div>
+                    <div class="card-body-content">
+                        <h5 class="card-title">Konsol Hesap Makinesi</h5>
+                        <p class="card-desc">
+                            Konsolda çalışan, temel matematiksel işlemleri yapabilen basit bir hesap makinesi uygulaması.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">C#</span></div>
+                        <a href="https://github.com/kendineyazilimci/Rus_Ruleti" target="_blank" class="card-link">
+                            <i class="fab fa-github me-2"></i> Kodu İncele
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="modern-card">
+                    <div class="card-header-img" style="border-bottom: 2px solid #004085;">
+                        <span class="card-year">2024</span>
+                        <i class="fas fa-gamepad"></i> </div>
+                    <div class="card-body-content">
+                        <h5 class="card-title">Rus Ruleti </h5>
+                        <p class="card-desc">
+                            Python Tkinter kütüphanesini öğrenmek amacıyla oluşturulmuş basit bir rus ruleti oyunu.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span> <span class="tech-tag">Tkinter</span> </div>
+                        <a href="https://github.com/kendineyazilimci/Rus_Ruleti" target="_blank" class="card-link">
+                            <i class="fab fa-github me-2"></i> Kodu İncele
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                 <h3 class="fw-bold mb-4 border-start border-4 border-success ps-3">Eğitim & Diğer</h3>
+                 <div class="glass-card p-4 mb-4">
+                     <span class="badge bg-success mb-2">Önlisans</span>
+                     <h5 class="fw-bold text-white" style="font-size:x-large">Bilgisayar Programcılığı</h5>
+                     <p class="text-success mb-1">Bandırma Onyedi Eylül Üniversitesi</p>
+                     <p class="text-secondary small">2023 - 2025</p>
+                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                 <div class="glass-card p-4 mb-4">
+                     <span class="badge bg-success mb-2">Sertifika</span>
+                     <h5 class="fw-bold text-white"><a href="https://www.linkedin.com/posts/ozan-g%C3%BCneysu-9928032b2_temel-linux-sertifika-activity-7273680198036840449-AyoA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEs52b4BKHB1UJmy09vq0_DntTG8ZZvtTLk" target="_blank">Türkcell Akademi - Geleceği Yazanlar</a></h5>
+                     <p class="text-success mb-1">Temel Linux 101</a>
+                     <p class="text-secondary small">2024</p>
+                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                 <div class="glass-card p-4 mb-4">
+                     <span class="badge bg-success mb-2">Sertifika</span>
+                     <h5 class="fw-bold text-white"><a href="https://www.linkedin.com/posts/ozan-g%C3%BCneysu-9928032b2_ymtban%C3%BC-yapay-zeka-ve-dijitalle%C5%9Fme-sertifikas%C4%B1-activity-7250525621234061312-cGa-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEs52b4BKHB1UJmy09vq0_DntTG8ZZvtTLk"  target="_blank">YMTBanü</a></h5>
+                     <p class="text-success mb-1">Yapay Zeka ve Dijitalleşme</a>
+                     <p class="text-secondary small">2024</p>
+                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                 <div class="glass-card p-4 mb-4">
+                     <span class="badge bg-success mb-2">Sertifika</span>
+                     <h5 class="fw-bold text-white"><a href="https://www.linkedin.com/posts/ozan-g%C3%BCneysu-9928032b2_sertifika-activity-7188654830712668160-MeFf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEs52b4BKHB1UJmy09vq0_DntTG8ZZvtTLk" target="_blank">YMTBanü</a></h5>
+                     <p class="text-success mb-1">Veri Biliminde Kariyer Yolu</a>
+                     <p class="text-secondary small">2024</p>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
