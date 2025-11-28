@@ -40,6 +40,7 @@ body::after {
 .gradient-text {
     background: linear-gradient(135deg, #004085, #0f7d8f);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 800;
     letter-spacing: -1px;

@@ -79,228 +79,130 @@
             </div>
         </div>
 
-    <div class="row mb-5">
-        <div class="col-12">
-            <h3 class="fw-bold mb-4 border-start border-4 border-info ps-3">Öne Çıkan Projeler</h3>
-        </div>
+        <%- include('../partials/projects') %>
 
-            <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="modern-card">
-                        <div class="card-header-img" style="border-bottom: 2px solid #0dcaf0;">
-                            <span class="card-year">2025</span>
-                            <i class="fas fa-laptop-code" style="color: #0dcaf0;"></i>
-                        </div>
-                        <div class="card-body-content">
-                            <h5 class="card-title">Websitem</h5>
-                            <p class="card-desc">
-                                Bu websitesinin kendi kaynak kodu. Node.js ve EJS yapıları ile geliştirdiğim kişisel portfolyom.
-                            </p>
-                            <div class="tech-stack">
-                                <span class="tech-tag" style="color: #0dcaf0; background: rgba(13, 202, 240, 0.1);">Node.js</span>
-                                <span class="tech-tag" style="color: #0dcaf0; background: rgba(13, 202, 240, 0.1);">EJS</span>
-                                <span class="tech-tag" style="color: #0dcaf0; background: rgba(13, 202, 240, 0.1);">Bootstrap</span>
-                            </div>
-                            <a href="https://github.com/kendineyazilimci/Websitem" target="_blank" class="card-link">
-                                <i class="fab fa-github me-2"></i> Kaynak Kodu
-                            </a>
-                        </div>
-                    </div>
-            </div>
-            
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="modern-card">
-                    <div class="card-header-img" style="border-bottom: 2px solid #004085;">
-                        <span class="card-year">2025</span>
-                        <i class="fas fa-book"></i> 
-                    </div>
-                    <div class="card-body-content">
-                        <h5 class="card-title">Pomodoro Uygulaması</h5>
-                        <p class="card-desc">
-                            React.js ile oluşturulmuş, android ve web uyumlu bir pomodoro uygulaması. 
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">Expo</span>
-                        </div>
-                        <a href="https://github.com/kendineyazilimci/Poomodoro" target="_blank" class="card-link">
-                            <i class="fab fa-github me-2"></i> Kodu İncele
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <%- include('../partials/education-certificate') %>
 
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="modern-card">
-                    <div class="card-header-img" style="border-bottom: 2px solid #004085;">
-                        <span class="card-year">2024</span>
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="card-body-content">
-                        <h5 class="card-title">Mesajlaşma Uygulaması</h5>
-                        <p class="card-desc">
-                            Maillere göre hesap oluşturan ve kullanıcıların birbirleriyle mesajlaşabildiği bir sosyal medya uygulaması.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">CSS3</span>
-                        </div>
-                        <a href="https://github.com/kendineyazilimci/Social-Media" target="_blank" class="card-link">
-                            <i class="fab fa-github me-2"></i> Kodu İncele
-                        </a>
-                    </div>
-                </div>
-            </div>
+<script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-                        <div class="col-lg-4 col-md-6 mb-4">
-                <div class="modern-card">
-                    <div class="card-header-img" style="border-bottom: 2px solid #004085;">
-                        <span class="card-year">2025</span>
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="card-body-content">
-                        <h5 class="card-title">PHP İle Oluşturulmuş İlk Websitem</h5>
-                        <p class="card-desc">
-                             Yarım kalan, ancak PHP yapısını öğrenmek için geliştirdiğim ilk kendime özel website projem.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">CSS3</span>
-                        </div>
-                        <a href="https://github.com/kendineyazilimci/MyOwnWebsite" target="_blank" class="card-link">
-                            <i class="fab fa-github me-2"></i> Kodu İncele
-                        </a>
-                    </div>
-                </div>
-            </div>
+<script>
+    const slider = document.querySelector('.scrolling-wrapper');
+    const leftBtn = document.getElementById('scrollLeftBtn');
+    const rightBtn = document.getElementById('scrollRightBtn');
+    
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    let isAnimating = false; 
 
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="modern-card">
-                    <div class="card-header-img" style="border-bottom: 2px solid #ffc107;">
-                        <span class="card-year">2024</span>
-                        <i class="fas fa-ghost" style="color: #ffc107;"></i>
-                    </div>
-                    <div class="card-body-content">
-                        <h5 class="card-title">Pac-Man Oyunu</h5>
-                        <p class="card-desc">
-                            Python ve PyGame kullanılarak geliştirilmiş, klasik oyun mekaniklerini içeren nostaljik bir oyun projesi.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag" style="color: #ffc107; background: rgba(255, 193, 7, 0.1);">Python</span>
-                            <span class="tech-tag" style="color: #ffc107; background: rgba(255, 193, 7, 0.1);">PyGame</span>
-                        </div>
-                        <a href="https://github.com/kendineyazilimci/PacMan" target="_blank" class="card-link">
-                            <i class="fab fa-github me-2"></i> Kodu İncele
-                        </a>
-                    </div>
-                </div>
-            </div>
+    slider.addEventListener('mousedown', (e) => {
+        isAnimating = false; 
+        
+        isDown = true;
+        slider.style.cursor = 'grabbing';
+        slider.style.scrollSnapType = 'none'; 
+        slider.style.scrollBehavior = 'auto';
+        
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
 
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="modern-card">
-                    <div class="card-header-img" style="border-bottom: 2px solid #198754;">
-                        <span class="card-year">2024</span>
-                        <i class="fas fa-robot" style="color: #198754;"></i>
-                    </div>
-                    <div class="card-body-content">
-                        <h5 class="card-title">Çizgi İzleyen Robot</h5>
-                        <p class="card-desc">
-                            Arduino tabanlı, sensörler yardımıyla otonom hareket edebilen çizgi izleyen robot donanım projesi.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag" style="color: #198754; background: rgba(25, 135, 84, 0.1);">C++</span>
-                            <span class="tech-tag" style="color: #198754; background: rgba(25, 135, 84, 0.1);">Arduino</span>
-                        </div>
-                        <a href="https://www.linkedin.com/posts/ozan-g%C3%BCneysu-9928032b2_arduino-robotics-project-activity-7250496121402249217-MNIb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEs52b4BKHB1UJmy09vq0_DntTG8ZZvtTLk" target="_blank" class="card-link">
-                            <i class="fas fa-eye me-2"></i> Detaylar
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="modern-card">
-                    <div class="card-header-img" style="border-bottom: 2px solid #004085;">
-                        <span class="card-year">2024</span>
-                        <i class="fas fa-calculator"></i> </div>
-                    <div class="card-body-content">
-                        <h5 class="card-title">Konsol Hesap Makinesi</h5>
-                        <p class="card-desc">
-                            Konsolda çalışan, temel matematiksel işlemleri yapabilen basit bir hesap makinesi uygulaması.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">C#</span></div>
-                        <a href="https://github.com/kendineyazilimci/Rus_Ruleti" target="_blank" class="card-link">
-                            <i class="fab fa-github me-2"></i> Kodu İncele
-                        </a>
-                    </div>
-                </div>
-            </div>
+    slider.addEventListener('mouseleave', () => {
+        if(isDown) {
+            isDown = false;
+            slider.style.cursor = 'grab';
+            snapToNearestCard();
+        }
+    });
 
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="modern-card">
-                    <div class="card-header-img" style="border-bottom: 2px solid #004085;">
-                        <span class="card-year">2024</span>
-                        <i class="fas fa-gamepad"></i> </div>
-                    <div class="card-body-content">
-                        <h5 class="card-title">Rus Ruleti </h5>
-                        <p class="card-desc">
-                            Python Tkinter kütüphanesini öğrenmek amacıyla oluşturulmuş basit bir rus ruleti oyunu.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Python</span> <span class="tech-tag">Tkinter</span> </div>
-                        <a href="https://github.com/kendineyazilimci/Rus_Ruleti" target="_blank" class="card-link">
-                            <i class="fab fa-github me-2"></i> Kodu İncele
-                        </a>
-                    </div>
-                </div>
-            </div>
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+        snapToNearestCard();
+    });
 
-        </div>
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1.2; 
+        slider.scrollLeft = scrollLeft - walk;
+    });
+    
+    slider.addEventListener('touchend', () => {
+        slider.style.scrollSnapType = 'x mandatory';
+    });
 
-        <div class="row">
-            <div class="col-12">
-                 <h3 class="fw-bold mb-4 border-start border-4 border-success ps-3">Eğitim & Diğer</h3>
-                 <div class="glass-card p-4 mb-4">
-                     <span class="badge bg-success mb-2">Önlisans</span>
-                     <h5 class="fw-bold text-white" style="font-size:x-large">Bilgisayar Programcılığı</h5>
-                     <p class="text-success mb-1">Bandırma Onyedi Eylül Üniversitesi</p>
-                     <p class="text-secondary small">2023 - 2025</p>
-                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                 <div class="glass-card p-4 mb-4">
-                     <span class="badge bg-success mb-2">Sertifika</span>
-                     <h5 class="fw-bold text-white"><a href="https://www.linkedin.com/posts/ozan-g%C3%BCneysu-9928032b2_temel-linux-sertifika-activity-7273680198036840449-AyoA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEs52b4BKHB1UJmy09vq0_DntTG8ZZvtTLk" target="_blank">Türkcell Akademi - Geleceği Yazanlar</a></h5>
-                     <p class="text-success mb-1">Temel Linux 101</a>
-                     <p class="text-secondary small">2024</p>
-                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                 <div class="glass-card p-4 mb-4">
-                     <span class="badge bg-success mb-2">Sertifika</span>
-                     <h5 class="fw-bold text-white"><a href="https://www.linkedin.com/posts/ozan-g%C3%BCneysu-9928032b2_ymtban%C3%BC-yapay-zeka-ve-dijitalle%C5%9Fme-sertifikas%C4%B1-activity-7250525621234061312-cGa-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEs52b4BKHB1UJmy09vq0_DntTG8ZZvtTLk"  target="_blank">YMTBanü</a></h5>
-                     <p class="text-success mb-1">Yapay Zeka ve Dijitalleşme</a>
-                     <p class="text-secondary small">2024</p>
-                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                 <div class="glass-card p-4 mb-4">
-                     <span class="badge bg-success mb-2">Sertifika</span>
-                     <h5 class="fw-bold text-white"><a href="https://www.linkedin.com/posts/ozan-g%C3%BCneysu-9928032b2_sertifika-activity-7188654830712668160-MeFf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEs52b4BKHB1UJmy09vq0_DntTG8ZZvtTLk" target="_blank">YMTBanü</a></h5>
-                     <p class="text-success mb-1">Veri Biliminde Kariyer Yolu</a>
-                     <p class="text-secondary small">2024</p>
-                 </div>
-            </div>
-        </div>
-    </div>
+    function getCardTotalWidth() {
+        const card = slider.querySelector('.horizontal-card');
+        if (!card) return 400;
+        const style = window.getComputedStyle(card);
+        const width = card.offsetWidth;
+        const marginRight = parseFloat(style.marginRight);
+        return width + marginRight; 
+    }
 
-    <script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    function snapToNearestCard() {
+        const cardWidth = getCardTotalWidth();
+        const currentScroll = slider.scrollLeft;
+        const nearestIndex = Math.round(currentScroll / cardWidth);
+        const targetPos = nearestIndex * cardWidth;
+        
+        smoothScrollTo(slider, targetPos, 300, () => {
+            slider.style.scrollSnapType = 'x mandatory';
+        });
+    }
+
+    function smoothScrollTo(element, target, duration, callback) {
+        isAnimating = true;
+
+        const start = element.scrollLeft;
+        const change = target - start;
+        const startTime = performance.now();
+
+        function animate(currentTime) {
+            if (!isAnimating && isDown) return;
+
+            const timeElapsed = currentTime - startTime;
+            if (timeElapsed < duration) {
+                const t = timeElapsed / duration;
+                const easeOutQuad = t * (2 - t);
+                element.scrollLeft = start + (change * easeOutQuad);
+                requestAnimationFrame(animate);
+            } else {
+                element.scrollLeft = target;
+                
+                // Animasyon bitti, kilidi aç
+                isAnimating = false;
+                
+                if (callback) callback(); 
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    leftBtn.addEventListener('click', () => {
+        if (isAnimating) return;
+
+        slider.style.scrollSnapType = 'none';
+        const cardWidth = getCardTotalWidth();
+        
+        smoothScrollTo(slider, slider.scrollLeft - cardWidth, 500, () => {
+            slider.style.scrollSnapType = 'x mandatory';
+        });
+    });
+
+    rightBtn.addEventListener('click', () => {
+        if (isAnimating) return;
+
+        slider.style.scrollSnapType = 'none';
+        const cardWidth = getCardTotalWidth();
+        
+        smoothScrollTo(slider, slider.scrollLeft + cardWidth, 500, () => {
+            slider.style.scrollSnapType = 'x mandatory';
+        });
+    });
+</script>
 </body>
 </html>
